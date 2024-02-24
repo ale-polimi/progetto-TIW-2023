@@ -20,6 +20,8 @@
  
  La documentazione del progetto è disponibile [qui](https://github.com/ale-polimi/progetto-TIW-2023/blob/main/documents/Documentazione_Progetto_TIW_2022_2023.pdf).
  
+ Il codice SQL per la creazione del database è disponibile [qui](https://github.com/ale-polimi/progetto-TIW-2023/blob/main/db_progetto.sql).
+ 
  ## Struttura del progetto
  
 	Eclipse/
