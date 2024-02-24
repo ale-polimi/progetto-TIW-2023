@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Orders</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" media="all" href="CSS/ProjectStyle.css" th:href="@{CSS/ProjectStyle.css}" />
+</head>
+<body>
+	<div>
+		<table class="logUser">
+			<tr>
+				<td>Welcome back <span th:text="${session.user.name}">user</span></td>
+				<td>&emsp;<a href="Logout">Logout</a></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="menuBar">
+			<tr>
+				<td><a href="ViewHome">Home</a></td>
+				<td>&emsp;<a href="ViewCart">Shopping Cart</a></td>
+				<td>&emsp;<a href="ViewOrders">Orders</a></td>
+				<td>
+					<form action="SearchKeyword" method="get">
+						&emsp;Write here to search the website: <input type="text"
+							name="keyword" id="keyword" required> <input
+							type="submit" value="Search">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="centeredTable">
+			<tr th:each="o : ${orders}">
+				<td>
+					<table class="productsTable" style="font-size: 18px;">
+						<tr>
+							<td colspan="3" style="font-size: 20px;">
+								Purchased on <span th:text="${#dates.format(o.date, 'dd/MM/yyyy')}">date</span><br>
+								From the supplier <span th:text="${o.supplier.name}">supplier</span> -
+								Total: <span th:text="${#numbers.formatDecimal(o.total, 0, 'COMMA', 2, 'POINT')}"></span> &euro;
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<br>Shipping address:<br>
+								<span th:text="${o.address.via}"></span>&nbsp;<span th:text="${o.address.numero}"></span>,&nbsp;
+								<span th:text="${o.address.citta}"></span>,&nbsp;<span th:text="${o.address.cap}"></span>
+							</td>
+						</tr>
+						<tr>
+							<td><br>List of purchased products:</td>
+						</tr>
+						<tr th:each="p : ${o.products}">
+							<td>
+								&#9679; <span th:text="${p.name}">Name</span>&emsp;x <span th:text="${p.quantity}">Quantity</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr th:if="${orders.empty}">
+				<td>You have no orders</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

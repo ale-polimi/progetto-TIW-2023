@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Register</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" media="all" href="CSS/ProjectStyle.css" th:href="@{CSS/ProjectStyle.css}" />
+</head>
+<body>
+	<div class="divRegister">
+		<form class="backButtonForm" action="BackButtonManager" method="post">
+			<input type="hidden" name="previousPage" value="/login.html">
+			<input type="submit" class="backButton" value="&larr;">
+		</form>
+		<h2 align="center">Enter your details to register</h2>
+		<form action="Register" method="post">
+			<table class="registerTable" style="text-align: right;">
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name" placeholder="Name" required th:value="${nameReceived}"></td>
+				</tr>
+				<tr>
+					<td>Surname:</td>
+					<td><input type="text" name="surname" placeholder="Surname" required th:value="${surnameReceived}"></td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td><input type="email" name="email" placeholder="Email" required th:value="${emailReceived}"></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="text" name="password" placeholder="Password" required></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" name="city" placeholder="City" required th:value="${cityReceived}"></td>
+				</tr>
+				<tr>
+					<td>Road:</td>
+					<td><input type="text" name="road" placeholder="Road" required th:value="${roadReceived}"></td>
+				</tr>
+				<tr>
+					<td>Zip code:</td>
+					<td><input type="text" name="zipCode" placeholder="Zip Code" required th:value="${zipCodeReceived}"></td>
+				</tr>
+				<tr>
+					<td>Number:</td>
+					<td><input type="number" name="number" placeholder="Number" required th:value="${numberReceived}"></td>
+				</tr>
+				<tr>
+					<td colspan="2" th:text="${errorMsg}"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Register"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

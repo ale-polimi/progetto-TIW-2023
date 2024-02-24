@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Home</title>
+		<script src="JS/utils.js" charset="UTF-8" defer></script>
+		<script src="JS/homeElements.js" charset="UTF-8" defer></script>
+		<script src="JS/home.js" charset="UTF-8" defer></script>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="CSS/ProjectStyle.css"/>
+		<noscript>
+			<link rel="stylesheet" href="CSS/ProjectStyle-noJS.css"/>
+		</noscript>
+	</head>
+	<body>
+		<div class="pageContainer">
+			<div>
+				<table class="logUser">
+					<tr>
+						<td id="welcomeMessage">Welcome back <span id="username"></span></td>
+						<td>
+							<input id="logoutButton" type="button" value="Logout">
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div id="menu">
+				<table class="menuBar">
+					<tr>
+						<td><input id="homeButton" type="button" value="Home" class="navigationButton"></td>
+						<td><input id="cartButton" type="button" value="Shopping Cart" class="navigationButton"></td>
+						<td><input id="ordersButton" type="button" value="Orders" class="navigationButton"></td>
+						<td>
+							<form id="searchField" action="#">
+								Write here to search the website: 
+								<input id="searchText" type="text" name="keyword" required>
+								<input id="searchButton" type="button" value="Search">
+							</form>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="centeredDiv">
+				<div id="message" class="notificationMessage"></div>
+			</div>
+			
+			<div id="resultsList" class ="centeredDiv">
+			</div>
+			
+			<div id="cartList" class ="centeredDiv">
+			</div>
+			
+			<div id="ordersList" class ="centeredDiv">
+			</div>
+		</div>
+		
+		<noscript>			
+			<div class="divContent-noJS">
+				<h2 align="center">This website only works with Javascript.</h2>
+				<h4 align="center">Please enable Javascript and refresh the page.</h4>
+			</div>
+		</noscript>
+	</body>
+</html>

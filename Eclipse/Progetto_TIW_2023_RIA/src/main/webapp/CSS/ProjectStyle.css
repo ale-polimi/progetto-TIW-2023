@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+/* Login */
+
+.divLogin {
+	margin-top: 105px;
+	font-size: 150%;
+}
+
+.loginTable {
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+table.loginTable input[type=email], table.loginTable input[type=password] {
+	font-size: 90%;
+	width: 16em;
+	border: solid gray 1px;
+	border-radius: 3px;
+}
+
+table.loginTable input[type=button] {
+	font-size: 90%;
+	width: 100px;
+}
+
+table.loginTable td[colspan="2"] {
+	text-align: center;
+}
+
+/* Homepage */
+
+.logUser {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: 0.5em;
+}
+
+input#logoutButton {
+	background: none!important;
+	border: none;
+	padding: 0!important;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 105%;
+	color: blue;
+}
+
+.menuBar {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.menuBar {
+	border-collapse: separate;
+	border-spacing: 1em 1em;
+}
+
+table.menuBar input.navigationButton {
+	background: none!important;
+	border: none;
+	padding: 0!important;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 105%;
+	color: blue;
+}
+
+.centeredDiv {
+	margin-left: 25%;
+	margin-right: 25%;
+	border-collapse: collapse;
+}
+
+div#resultsList {
+	margin-left: 30% !important;
+	margin-right: 14% !important;
+	border-collapse: collapse;
+}
+
+.notificationMessage {
+	text-align: center;
+}
+
+.errorMessage {
+	text-align: center;
+}
+
+/* Products table list */
+
+.productTable {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.productText {
+	font-weight: bold;
+}
+
+/* Offers for the product */
+
+.tableOffer {
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.tableOffer tbody tr:nth-child(even) {
+	background-color: #F5F5F5;
+}
+
+.tableOffer tbody tr:nth-child(odd) {
+	background-color: #DCDCDC;
+}
+
+.cellSupplier {
+	background-color: white;
+	white-space: pre;
+}
+
+.divInfoOffer {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+
+.divInfoOffer div:not(.overlay), .divInfoOffer form {
+	display: inline;
+	vertical-align: 2em;
+	margin-bottom: 2.2em;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.divInfoOffer input {
+	margin-left: 0.2em;
+}
+
+.overlaySource {
+	position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    background: #CFCFCF;
+    opacity: 0;
+    height: 0;
+}
+
+.overlay table {
+	width: auto !important;
+    margin: 0 !important;
+}
+
+.overlaySource:hover .overlay {
+	width: auto;
+    height: auto;
+    opacity: 0.9;
+    z-index: 1;
+    font-size: 85%;
+}
+
+/* Cart layout */
+
+table.cartTable {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	border: solid gray 1px;
+}
+
+table.cartTable th {
+	text-align: left;
+}
+
+table.cartTable tr {
+	text-align: right;
+	vertical-align: middle;
+}
+
+.cartTable input {
+	margin-top: 2.5px;
+	margin-bottom: 2.5px;
+	margin-right: 5px;
+}
+
+/* Orders layout */
+
+.orderTable {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	width: 50%;
+}
+
+.orderTable td {
+	white-space: pre;
+}
+
+/* Images layout */
+
+.tdImage {
+	text-align: center;
+	height: 150px;
+}
+
+.bigImage {
+	border-radius: 8px;
+	max-width: 150px;
+	max-height: 150px;
+	width: auto;
+	height: auto;
+}
+
+.mediumImage {
+	border-radius: 8px;
+	max-width: 110px;
+	max-height: 110px;
+	width: auto;
+	height: auto;
+}

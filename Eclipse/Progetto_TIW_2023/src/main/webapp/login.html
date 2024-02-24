@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" media="all" href="CSS/ProjectStyle.css" th:href="@{CSS/ProjectStyle.css}" />
+</head>
+<body>
+	<div class="divLogin">
+		<h2 align="center">Welcome to the shopping platform</h2>
+		<h4 align="center">Please enter your credentials to log in</h4>
+		<form action="CheckLogin" method="post">
+			<table class="loginTable">
+				<tr>
+					<td><input type="email" name="email" placeholder="email"
+						required th:value="${emailReceived}"></td>
+				</tr>
+				<tr>
+					<td><input type="password" name="password" placeholder="password"
+						required></td>
+				</tr>
+				<tr>
+					<td colspan="2" th:text="${errorMsg}"></td>
+				</tr>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td><input type="submit" value="Login"></td>
+								<td class="registerLink"><a href="Register">New user? Sign up</a></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<br>
+		</form>
+	</div>
+</body>
+</html>

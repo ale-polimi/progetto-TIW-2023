@@ -1,0 +1,120 @@
+@charset "UTF-8";
+.divLogin, .divRegister {
+	margin-top: 105px;
+	font-size: 150%;
+}
+
+.backButtonForm {
+	position: absolute;
+	top: 110px;
+	right: 1300px;
+}
+
+.backButton {
+	font-size: inherit;
+	border: solid gray 1px;
+	border-radius: 50%;
+}
+
+.loginTable, .centeredTable, .menuBar, .registerTable {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.logUser {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.productsTable {
+	border: solid gray 1px;
+}
+
+.productsTable, .resultsTable {
+	width: 100%;
+}
+
+.tdHigh {
+	vertical-align: top;
+	width: 500px;
+}
+
+.tdImage {
+	table-layout: fixed;
+	vertical-align: top;
+	text-align: center;
+	padding-right: 5px;
+	width: 150px;
+	height: 150px;
+}
+
+.bigImage {
+	border-radius: 8px;
+	max-width: 150px;
+	max-height: 150px;
+	width: auto;
+	height: auto;
+}
+
+.mediumImage {
+	border-radius: 8px;
+	max-width: 110px;
+	max-height: 110px;
+	width: auto;
+	height: auto;
+}
+
+.spanDescription {
+	text-align: justify;
+	display: block;
+}
+
+.rightText {
+	text-align: right;
+}
+
+table.logUser a, table.menuBar a {
+	text-decoration: none;
+	color: blue;
+}
+
+tr.menuBar input[type=text] {
+	width: 400px;
+}
+
+table.productsTable a, table.resultsTable a, table.centeredTable a {
+	text-decoration: none;
+	color: black;
+}
+
+table.centeredTable tr {
+	border-bottom: 15pt solid black;
+}
+
+table.loginTable input[type=email], table.loginTable input[type=password], table.registerTable input[type=email], table.registerTable input[type=password], table.registerTable input[type=text], table.registerTable input[type=number]{
+	font-size: 90%;
+	width: 350px;
+	border: solid gray 1px;
+	border-radius: 3px;
+}
+
+table.registerTable td[colspan="2"] {
+	text-align: center;
+}
+
+table.loginTable input[type=submit], table.registerTable input[type=submit] {
+	font-size: 90%;
+	width: 100px;
+}
+
+td.registerLink {
+	font-size: 60%;
+	width: 100%;
+	text-align: right;
+}
+
+td.registerLink a {
+	text-decoration: none;
+	color: blue;
+}

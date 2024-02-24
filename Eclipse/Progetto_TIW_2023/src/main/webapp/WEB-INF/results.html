@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Results</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" media="all" href="CSS/ProjectStyle.css" th:href="@{CSS/ProjectStyle.css}" />
+</head>
+<body>
+	<div>
+		<table class="logUser">
+			<tr>
+				<td>Welcome back <span th:text="${session.user.name}">user</span></td>
+				<td>&emsp;<a href="Logout">Logout</a></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="menuBar">
+			<tr>
+				<td><a href="ViewHome">Home</a></td>
+				<td>&emsp;<a href="ViewCart">Shopping Cart</a></td>
+				<td>&emsp;<a href="ViewOrders">Orders</a></td>
+				<td>
+					<form action="SearchKeyword" method="get">
+						&emsp;Write here to search the website: <input type="text"
+							name="keyword" id="keyword" required> <input
+							type="submit" value="Search">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<table class="centeredTable">
+		<tr th:each="p : ${products}">
+			<td>
+				<table class="resultsTable">
+					<tr>
+						<td class="tdImage"><a
+							th:href="@{/SearchOffers(productId=${p.Id})}"> <img
+								th:src="@{'data:image/jpg;base64,'+${p.image}}"
+								th:alt="${p.name}" class="bigImage" />
+						</a></td>
+						<td class="tdHigh"><a
+							th:href="@{/SearchOffers(productId=${p.Id})}"> <span
+								th:text="${p.category}">Category</span><br> <br> <b><span
+									th:text="${p.name}">Product name</span></b> <span
+								th:text="${#numbers.formatDecimal(p.price, 0, 'COMMA', 2, 'POINT')}">Price</span>
+								&euro;<br> <br> <span class="spanDescription"
+								th:text="${p.description}">Description</span>
+						</a></td>
+					</tr>
+					<tr th:if="${p.Id} == ${idToShow}">
+						<td colspan="2">
+							<div th:each="product : ${offers}"
+								th:insert="@{WEB-INF/fragment.html} :: list(product)"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr th:if="${products.empty}">
+			<td>No results available</td>
+		</tr>
+	</table>
+</body>
+</html>

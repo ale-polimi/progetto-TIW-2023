@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<table style="width: 100%" th:fragment="list(product)">
+		<tr>
+			<td style="width: 55%;">
+				&#9679; <span th:text="${product.supplier.name}">Supplier</span> - 
+				<span th:text="${product.supplier.evaluation}">Evaluation</span> &#9733; - 
+				<span th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}">Price</span> &euro;<br><br>
+				<p th:each="range : ${product.supplier.politicaSpedizione}">Minimum number of products: <span th:text="${range.min}"></span><br>
+				Maximum number of products: <span th:text="${range.max} &gt; 0 ? ${range.max} : 'N/A'"></span><br>
+				Shipping: <span th:text="${#numbers.formatDecimal(range.price, 0, 'COMMA', 2, 'POINT')}"></span> &euro;</p>
+			</td>
+			<td valign="top" th:switch="${product.supplier.freeShippingLimit}">
+				<span th:case="-1">No free shipping available for this supplier</span>
+				<span th:case="*">Free shipping available for orders above:
+					<span th:text="${#numbers.formatDecimal(product.supplier.freeShippingLimit, 0, 'COMMA', 2, 'POINT')}">Free shipping</span> &euro;
+				</span><br><br>
+				Number of products already in the cart: <span th:text="${product.quantity}"></span><br>
+				Value of the cart:
+				<span th:text="${product.value} &gt; 0 ? ${#numbers.formatDecimal(product.value, 0, 'COMMA', 2, 'POINT')} : '0.00'"></span> &euro;<br><br><br>
+				<form action="AddToCart" method="post" style="text-align: center;">
+					<input type="hidden" name="supplierId" th:value="${product.supplier.id}" required>
+					<input type="hidden" name="productId" th:value="${product.id}" required>
+					<input type="number" name="quantity" id="quantity" min="1" th:max="999 - ${product.quantity}" value="1" style="width: 55px" required>
+					<input type="submit" value="Confirm">
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

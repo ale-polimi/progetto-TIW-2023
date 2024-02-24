@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+		<script src="JS/utils.js" charset="UTF-8" defer></script>
+		<script src="JS/login.js" charset="UTF-8" defer></script>
+		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="stylesheet" href="CSS/ProjectStyle.css"/>
+		<noscript>
+			<link rel="stylesheet" href="CSS/ProjectStyle-noJS.css"/>
+		</noscript>
+	</head>
+	<body>
+		<div class="divLogin">
+			<h2 align="center">Welcome to the shopping platform</h2>
+			<h4 align="center">Please enter your credentials to log in</h4>
+			<form id="loginForm" action="#" class="loginForm">
+				<table class="loginTable">
+					<tr>
+						<td><input type="email" name="email" placeholder="email" required></td>
+					</tr>
+					<tr>
+						<td><input type="password" name="password" placeholder="password" required></td>
+					</tr>
+					<tr>
+						<td colspan="2"><p id="loginError"></p></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input id="loginButton" type="button" value="Login"></td>
+					</tr>
+				</table>
+				<br>
+			</form>
+		</div>
+		
+		<noscript>			
+			<div class="divContent-noJS">
+				<h2 align="center">This website only works with Javascript.</h2>
+				<h4 align="center">Please enable Javascript and refresh the page.</h4>
+			</div>
+		</noscript>
+	</body>
+</html>

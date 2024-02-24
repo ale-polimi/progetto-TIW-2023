@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Shopping cart</title>
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" media="all" href="CSS/ProjectStyle.css" th:href="@{CSS/ProjectStyle.css}" />
+</head>
+<body>
+	<div>
+		<table class="logUser">
+			<tr>
+				<td>Welcome back <span th:text="${session.user.name}">user</span></td>
+				<td>&emsp;<a href="Logout">Logout</a></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="menuBar">
+			<tr>
+				<td><a href="ViewHome">Home</a></td>
+				<td>&emsp;<a href="ViewCart">Shopping Cart</a></td>
+				<td>&emsp;<a href="ViewOrders">Orders</a></td>
+				<td>
+					<form action="SearchKeyword" method="get">
+						&emsp;Write here to search the website: <input type="text"
+							name="keyword" id="keyword" required> <input
+							type="submit" value="Search">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<table class="centeredTable">
+			<tr th:each="s : ${suppliers}">
+				<td>
+					<table class="productsTable">
+						<tr>
+							<td colspan="3"><b><span th:text="${s.supplier.name}">Supplier</span></b><br>
+								<br></td>
+						</tr>
+						<tr th:each="p : ${s.products}">
+							<td style="width: 110px;">
+								<img th:src="@{'data:image/jpg;base64,'+${p.image}}" th:alt="${p.name}" class="mediumImage" />
+							</td>
+							<td>
+								<span th:text="${p.category}">Category</span> -
+								<span th:text="${p.name}">Product name</span>
+							</td>
+							<td class="rightText" style="width: 90px;">
+								x<span th:text="${p.quantity}">Quantity</span>
+								<span th:text="${#numbers.formatDecimal(p.price, 0, 'COMMA', 2, 'POINT')}">Price</span>	&euro;
+							</td>
+						</tr>
+						<tr class="rightText">
+							<td colspan="2"><span>Total:</span></td>
+							<td>
+								<span th:text="${#numbers.formatDecimal(s.totalCost, 0, 'COMMA', 2, 'POINT')}"></span>	&euro;
+							</td>
+						</tr>
+						<tr class="rightText">
+							<td colspan="2"><span>Shipping cost:</span></td>
+							<td>
+								<span th:text="${s.shippingCost} &gt; 0 ? ${#numbers.formatDecimal(s.shippingCost, 0, 'COMMA', 2, 'POINT')} : '0.00'"></span>	&euro;
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3">
+								<form th:action="AddToOrder" method="post">
+									<table
+										style="width: 100%; text-align: right; margin-top: 10px;">
+										<tr>
+											<td>City</td>
+											<td style="width: 30%;"><input type="text" name="citta"
+												th:value="${session.user.address.citta}" id="citta" required></td>
+										</tr>
+										<tr>
+											<td>Road</td>
+											<td><input type="text" name="via"
+												th:value="${session.user.address.via}" id="via" required></td>
+										</tr>
+										<tr>
+											<td>Number</td>
+											<td><input type="number" name="numero"
+												th:value="${session.user.address.numero}" id="numero"
+												required></td>
+										</tr>
+										<tr>
+											<td>Zip code</td>
+											<td><input type="text" name="cap"
+												th:value="${session.user.address.cap}" id="cap" required></td>
+										</tr>
+										<tr>
+											<td><input type="hidden" name="supplierId"
+												th:value="${s.supplier.id}" id="supplierId"></td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<input type="submit" value="ORDER NOW">
+											</td>
+										</tr>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr th:if="${suppliers.empty}">
+				<td>Your cart is empty</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
